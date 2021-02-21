@@ -24,6 +24,7 @@
         5 ⇁ Consulta Bin
         6 ⇁ Consulta Numero [OFF]
         7 ⇁ Checker CC  [OFF]
+        10 ⇁ Sites Oficiais
         0 - Fechar
         
 ⇨ 
