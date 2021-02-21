@@ -39,8 +39,7 @@ Iremos avisar aki quando estiver em funcionamento cada uma das ferramentas inclu
 - [ ] Placa
 - [x] Bin
 - [ ] Numero
-- [ ] Checker CC
-
+- [x] Checker CC
 # Exemplos da Tool!
 ## CEP
 ```
@@ -113,11 +112,11 @@ Bairro: CHAVES
 Porte: MICRO FONE
 -============///////=============-
 ```
-# Placa
+## Placa
 ```
 # OFF #
 ```
-# Bin
+## Bin
 ```
       _____                   ____       ___  _____  __
      / ___/__  ___  ___ __ __/ / /____ _/ _ )/  _/ |/ /
@@ -132,15 +131,18 @@ Bandeira: mastercard
 Nivel: credit
 Tipo: World
 ```
-# Numero
+## Numero
 ```
 # OFF #
 ```
-# Checker CC
+## Checker CC
 ```
-# OFF #
+Formato checker ( NumeroCC|Mes|Ano|CCV )
+Digite sua CC: 5522556610755032770|02|2024|311
+[*] Invadindo o sistema...\
+ #Aprovada: 552255xxxxxxxxxxxxx|mm|yyyy|ccv| #GRABBERCHECKER
 ```
-
+# Dev's
 <b>Está Tool foi desenvolvida por:</b>
 
 <table>
