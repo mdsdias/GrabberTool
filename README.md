@@ -8,7 +8,7 @@
   <h2>Temos um site e você pode ver como ele é e seus codigos!</h2>
 </p>
 
-![Customized Card](https://github-readme-stats.vercel.app/api/pin?username=isqneeh&repo=GrabberTool-WebSite&title_color=fff&icon_color=f9f9f9&text_color=9f9f9f&bg_color=151515)
+[![Customized Card](https://github-readme-stats.vercel.app/api/pin?username=isqneeh&repo=GrabberTool-WebSite&title_color=fff&icon_color=f9f9f9&text_color=9f9f9f&bg_color=151515)](https://github.com/Isqneeh/GrabberTool-WebSite)
 
 ## Funcionamento!
 #### Fizemos um sistema simples de se entender para facitamento geral!
