@@ -41,7 +41,7 @@ Por conta disso as vezes pode aparecer [OFF]
 Iremos avisar aki quando estiver em funcionamento cada uma das ferramentas inclusas!
 # Ferramentas ON!!
 - [x] CEP
-- [x] CPF
+- [ ] CPF
 - [x] CNPJ
 - [ ] Placa
 - [x] Bin
@@ -70,26 +70,7 @@ Estado : AC
 ```
 ## CPF
 ```
-      _____                   ____       ________  ____
-     / ___/__  ___  ___ __ __/ / /____ _/ ___/ _ \/ __/
-    / /__/ _ \/ _ \(_-</ // / / __/ _ `/ /__/ ___/ _/
-    \___/\___/_//_/___/\_,_/_/\__/\_,_/\___/_/  /_/
-                            By Isqne | iiMaxxi
-
-Digite o CPF:
-12345678910
-Consultando..\
--============///////=============-     
-CPF: 12345678910
-Nome: Adalberto Legal Chapolin
-Nascimento: dd/mm/yyyy
-Nome da Mae: Mamae bacana
-Endereco: Bruxa, 71
-Complemento: Vila do chaves
-Bairro: Sei não
-Cidade: Vila do chaves uai
-CEP: 12345678
--============///////=============-     
+# OFF #
 ```
 ## CNPJ
 ```
