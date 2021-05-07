@@ -3,9 +3,13 @@ import os
 import time
 import sys
 import json
-from colorama import Fore
-import requests
-from requests.api import request
+try:
+    from colorama import Fore
+    import requests
+    from requests.api import request
+except:
+    print("Baixando requirementos")
+    os.system('pip install requests colorama')
 
 # Variaveis!
 
@@ -42,7 +46,7 @@ def menu():
         3 - Consulta CNPJ
         4 - Consulta Placa
         5 - Consulta Bin
-        6 - Consulta Numero {Fore.LIGHTGREEN_EX}[Simples]{Fore.LIGHTWHITE_EX}
+        6 - Consulta Numero {Fore.LIGHTGREEN_EX}[Simples]{Fore.LIGHTWHITE_EX} {Fore.LIGHTRED_EX}[OFF]{Fore.LIGHTWHITE_EX}
         7 - Checker CC {Fore.LIGHTRED_EX}[OFF]{Fore.LIGHTWHITE_EX}
         8 - Consulta Nome
         {Fore.LIGHTRED_EX}0 - Fechar{Fore.LIGHTWHITE_EX}
@@ -140,21 +144,12 @@ def consultacpf():
     cleaner()
     print(BannerMenu)
     cpf_consultar = input('-=>>')
-    url = f"http://www.portaltransparencia.gov.br/pessoa-fisica/busca/resultado?termo={cpf_consultar}"
-    trans=requests.get(url)
-    trans=json.loads(trans.text)
-    nome = trans["registros"][0]["nome"]
-    print(nome)
-    cpf_hehe = cpf_consultar
-    consult = requests.get("http://45.178.183.3/nome.php?nome={}".format(nome))
-    consult = json.loads(consult.text)
-    if consult["resultados"][0]["cpf"] == cpf_hehe:
-        print("CPF:", consult["resultados"][0]["cpf"])
-        print("Nome Completo:", consult["resultados"][0]["nome"])
-        print("Nascimento:", consult["resultados"][0]["nascimento"])
-        print("Sexo:", consult["resultados"][0]["sexo"])
-    else:
-        print("Não encontrado")
+    data = requests.get('http://api.trackear.com.br/basepv/cpf/{}/noip'.format(cpf_consultar)).json()
+    print("CPF: {}".format(data['cpf']))
+    print("Nome: {}".format(data['nome']))
+    print("Sexo: {}".format(data['sexo']))
+    print("Data de Nascimento: {}".format(data['dtNascimento']))
+    print("Idade: {}".format(data['idade']))
     print('Em 5 Segundos voce voltara ao menu!')
     time.sleep(5.0)
     cleaner()
@@ -174,7 +169,7 @@ def consultanome():
         i = 0
         try:
             print('-============///////=============-')
-            while i <= 10 :
+            while i < 10 :
                 print("CPF:", r["resultados"][i]["cpf"])
                 print("Nome Completo:", r["resultados"][i]["nome"])
                 print("Nascimento:", r["resultados"][i]["nascimento"])
@@ -218,11 +213,15 @@ def consultacnpj():
 def consultaplaca():
     cleaner()
     print(BannerMenu)
-    placa = input('>>')
+    print('''
+    [I] Para buscar, utilize o exemplo:
+    ABC-1224
+    ''')
+    placa = input('[<>]:')
     time.sleep(0.4)
     try:
         h = {
-
+            
         }
 
         url = " "
@@ -323,7 +322,7 @@ def Spinner():
 cleaner()
 Spinnerinicio()
 try:
-    os.system("git pull")
+    os.system('git pull')
     menu()
 except KeyboardInterrupt:
     print("Quer sair? \nS - Sim\nN - Não")
