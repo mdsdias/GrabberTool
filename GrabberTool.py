@@ -1,15 +1,20 @@
 # Importações...
-import requests
 import os
+import time
 import sys
 import json
-import time
-import base64
-import re
 from colorama import Fore
+import requests
 from requests.api import request
 
-# Banner's...
+# Variaveis!
+
+consulta_local = "Menu"
+vercao = "1.8 BETA"
+titulo = "GrabberTool Verção 1.8! "
+
+# Banner's
+
 BannerMenu = (f'''
     {Fore.LIGHTBLUE_EX}
      _______            __    __               _______             __
@@ -17,273 +22,317 @@ BannerMenu = (f'''
     |.  |___|   _|  _  |  _  |  _  |  -__|   _|.|   | |  _  |  _  |  |_____.
     |.  |   |__| |___._|_____|_____|_____|__| `-|.  |-|_____|_____|________|
     |:  1   |                                   |:  |                 
-    |::.. . |      Isqne & iiMaxxi              |::.|                 
+    |::.. . |                                   |::.|                 
     `-------'                                   `---'{Fore.LIGHTWHITE_EX}
     ''')
-bannercpf= ('''
-      _____                   ____       ________  ____
-     / ___/__  ___  ___ __ __/ / /____ _/ ___/ _ \/ __/
-    / /__/ _ \/ _ \(_-</ // / / __/ _ `/ /__/ ___/ _/  
-    \___/\___/_//_/___/\_,_/_/\__/\_,_/\___/_/  /_/    
-                            By Isqne | iiMaxxi
-    ''')
-bannerbin= ('''
-      _____                   ____       ___  _____  __
-     / ___/__  ___  ___ __ __/ / /____ _/ _ )/  _/ |/ /
-    / /__/ _ \/ _ \(_-</ // / / __/ _ `/ _  |/ //    / 
-    \___/\___/_//_/___/\_,_/_/\__/\_,_/____/___/_/|_/  
-                            By Isqne | iiMaxxi
-    ''')
-bannerplaca= ('''
-      _____                   ____       ___  __             
-     / ___/__  ___  ___ __ __/ / /____ _/ _ \/ /__  ___ ____
-    / /__/ _ \/ _ \(_-</ // / / __/ _ `/ ___/ / _ `/ __/ _  /
-    \___/\___/_//_/___/\_,_/_/\__/\_,_/_/  /_/\_,_/\__/\_,_/ 
-                            By Isqne | iiMaxxi
-    ''')
-bannercnpj= ('''
-      _____                   ____       ______  _____     __
-     / ___/__  ___  ___ __ __/ / /____ _/ ___/ |/ / _ \__ / /
-    / /__/ _ \/ _ \(_-</ // / / __/ _ `/ /__/    / ___/ // / 
-    \___/\___/_//_/___/\_,_/_/\__/\_,_/\___/_/|_/_/   \___/  
-                            By Isqne | iiMaxxi
-    ''')
-bannercep= ('''
-      _____                   ____       ____________ 
-     / ___/__  ___  ___ __ __/ / /____ _/ ___/ __/ _ \ 
-    / /__/ _ \/ _ \(_-</ // / / __/ _ `/ /__/ _// ___/
-    \___/\___/_//_/___/\_,_/_/\__/\_,_/\___/___/_/    
-                            By Isqne & iiMaxxi''')
-bannernum = (''' 
-      _____                   ____       _  __         
-     / ___/__  ___  ___ __ __/ / /____ _/ |/ /_ ____ _ 
-    / /__/ _ \/ _ \(_-</ // / / __/ _ `/    / // /  ' \ 
-    \___/\___/_//_/___/\_,_/_/\__/\_,_/_/|_/\_,_/_/_/_/
-                            By Isqne | iiMaxxi | Simples                                      
-    ''')
+
 # Menu inicial...
+
 def menu():
+    """
+    Menu inicial para consultas
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    """
+    consulta_local = "Menu"
+    os.system('title ' + titulo + '- ' + consulta_local)
     print(BannerMenu)
     print(f'''
-        1 ⇁ Consulta CEP
-        2 ⇁ Consulta CPF
-        3 ⇁ Consulta CNPJ
-        4 ⇁ Consulta Placa {Fore.LIGHTRED_EX}[OFF]{Fore.LIGHTWHITE_EX}
-        5 ⇁ Consulta Bin
-        6 ⇁ Consulta Numero {Fore.LIGHTRED_EX}[OFF]{Fore.LIGHTWHITE_EX}
-        7 ⇁ Checker CC {Fore.LIGHTRED_EX} [OFF]{Fore.LIGHTWHITE_EX}
-        10 ⇁ Site Oficial
+        1 - Consulta CEP
+        2 - Consulta CPF
+        3 - Consulta CNPJ
+        4 - Consulta Placa
+        5 - Consulta Bin
+        6 - Consulta Numero {Fore.LIGHTGREEN_EX}[Simples]{Fore.LIGHTWHITE_EX}
+        7 - Checker CC {Fore.LIGHTRED_EX}[OFF]{Fore.LIGHTWHITE_EX}
+        8 - Consulta Nome
         {Fore.LIGHTRED_EX}0 - Fechar{Fore.LIGHTWHITE_EX}
         ''')
-    inputt = input('⇨ ')
-    if inputt == '0' or inputt == '00':
-        print('')
-        os.system('cls')
-        exit()
+    inputt = input('[Escolha um]:')
     if inputt == '1' or inputt == '01':
         print('')
+        cleaner()
+        consulta_local = "CEP"
+        os.system('title ' + titulo + '- ' + consulta_local)
         consultacep()
     if inputt == '2' or inputt == '02':
         print('')
+        cleaner()
+        consulta_local = "CPF"
+        os.system('title ' + titulo + '- ' + consulta_local)
         consultacpf()
     if inputt == '3' or inputt == '03':
         print('')
+        cleaner()
+        consulta_local = "CNPJ"
+        os.system('title ' + titulo + '- ' + consulta_local)
         consultacnpj()
     if inputt == '4' or inputt == '04':
         print('')
+        cleaner()
+        consulta_local = "PLACA"
+        os.system('title ' + titulo + '- ' + consulta_local)
         consultaplaca()
     if inputt == '5' or inputt == '05':
         print('')
+        cleaner()
+        consulta_local = "BIN"
+        os.system('title ' + titulo + '- ' + consulta_local)
         consultabin()
     if inputt == '6' or inputt == '06':
         print('')
-        consultanum()        
+        cleaner()
+        consulta_local = "NUMERO"
+        os.system('title '+ titulo + '- ' + consulta_local)
+        consultanum()
     if inputt == '7' or inputt == '07':
         print('')
+        cleaner()
+        consulta_local = "CHECKER GG"
+        os.system('title ' + titulo + '- ' + consulta_local)
         checkercc()
-    if inputt == '10':
-        os.system('cls')
-        site()
+    if inputt == '8' or inputt == '08':
+        print('')
+        cleaner()
+        consulta_local = "NOME"
+        os.system('title ' + titulo + '- ' + consulta_local)
+        consultanome()
     if inputt == '0' or inputt == '00':
-        os.system('cls')
+        cleaner()
         exit()
     else:
         print('')
+        cleaner()
         error404()
-# Comandos...
+
+# Ferramentas e Gerenciamento geral!
+
 def consultacep():
-    os.system('cls')
-    print(bannercep)
+    cleaner()
+    print(BannerMenu)
     cep = input('Digite o CEP:\n')
     url = f"https://ws.apicep.com/cep/{cep}.json"
-    json: object = requests.get(url).json()
-    cep = json["code"]
-    bairro = json["district"]
-    estado = json["state"]
-    cidade = json["city"]
-    rua = json["address"]
-    Spinner()
-    print('')
-    print('Busca Completa')
-    print('Dados coletados...')
-    print('-============///////=============-')
-    print('CEP :', json["code"])
-    print('Bairro :', json["district"])
-    print('Endereco :', json["address"] )
-    print('Cidade :', json["city"])
-    print('Estado :', json["state"])
-    print('-============///////=============-')
-    print('')
+    try:
+        json: object = requests.get(url).json()
+        cep = json["code"]
+        bairro = json["district"]
+        estado = json["state"]
+        cidade = json["city"]
+        rua = json["address"]
+        Spinner()
+        print('')
+        print('Busca Completa')
+        print('Dados coletados...')
+        print('-============///////=============-')
+        print('CEP :', json["code"])
+        print('Bairro :', json["district"])
+        print('Endereco :', json["address"] )
+        print('Cidade :', json["city"])
+        print('Estado :', json["state"])
+        print('-============///////=============-')
+        print('')
+    except:
+        print('A busca não pode ser completada')
     print('Em 10 Segundos voce voltara ao menu!')
     time.sleep(10.0)
-    os.system('cls')
+    cleaner()
     menu()
 def consultacpf():
-    os.system('cls')
-    a='aHR0cDovL3d3dy5qdXZlbnR1ZGV3ZWIubXRlLmdvdi5ici9wbnBlcGVzcXVpc2FzLmFzcA=='
-    a=a.encode('ascii')
-    a=base64.b64decode(a)
-    a=a.decode('ascii')
-    print(bannercpf)
-    cpf = input('Digite o CPF: \n')
-    h={
-    'Content-Type': "text/xml, application/x-www-form-urlencoded;charset=ISO-8859-1, text/xml; charset=ISO-8859-1",
-    'Cookie': "ASPSESSIONIDSCCRRTSA=NGOIJMMDEIMAPDACNIEDFBID; FGTServer=2A56DE837DA99704910F47A454B42D1A8CCF150E0874FDE491A399A5EF5657BC0CF03A1EEB1C685B4C118A83F971F6198A78",
-    'Host': "www.juventudeweb.mte.gov.br"
-    }
-    r=requests.post(a, headers=h, data=f'acao=consultar%20cpf&cpf={cpf}&nocache=0.7636039437638835').text
-    Spinner()
-    print(f'''
-    -============///////=============-
-    CPF: {re.search('NRCPF="(.*?)"', r).group(1)}
-    Nome: {re.search('NOPESSOAFISICA="(.*?)"', r).group(1).title()}
-    Nascimento: {re.search('DTNASCIMENTO="(.*?)"', r).group(1)}
-    Nome da Mae: {re.search('NOMAE="(.*?)"', r).group(1).title()}
-    Endereco: {re.search('NOLOGRADOURO="(.*?)"', r).group(1).title()}, {re.search('NRLOGRADOURO="(.*?)"', r).group(1)}
-    Complemento: {re.search('DSCOMPLEMENTO="(.*?)"', r).group(1).title()}
-    Bairro: {re.search('NOBAIRRO="(.*?)"', r).group(1).title()}
-    Cidade: {re.search('NOMUNICIPIO="(.*?)"', r).group(1).title()}-{re.search('SGUF="(.*?)"', r).group(1)}
-    CEP: {re.search('NRCEP="(.*?)"', r).group(1)}
-    -============///////=============-
-    ''')
-    print('')
+    cleaner()
+    print(BannerMenu)
+    cpf_consultar = input('-=>>')
+    url = f"http://www.portaltransparencia.gov.br/pessoa-fisica/busca/resultado?termo={cpf_consultar}"
+    trans=requests.get(url)
+    trans=json.loads(trans.text)
+    nome = trans["registros"][0]["nome"]
+    print(nome)
+    cpf_hehe = cpf_consultar
+    consult = requests.get("http://45.178.183.3/nome.php?nome={}".format(nome))
+    consult = json.loads(consult.text)
+    if consult["resultados"][0]["cpf"] == cpf_hehe:
+        print("CPF:", consult["resultados"][0]["cpf"])
+        print("Nome Completo:", consult["resultados"][0]["nome"])
+        print("Nascimento:", consult["resultados"][0]["nascimento"])
+        print("Sexo:", consult["resultados"][0]["sexo"])
+    else:
+        print("Não encontrado")
     print('Em 5 Segundos voce voltara ao menu!')
     time.sleep(5.0)
-    os.system('cls')
+    cleaner()
     menu()
+def consultanome():
+    cleaner()
+    print(BannerMenu)
+    individuo = input(">>")
+    r = requests.get("http://45.178.183.3/nome.php?nome={}".format(individuo))
+    r = r.json()
+    results = r["quantidadeResultados"]
+    results = int(results)
+    print("Quantidade de resultados: ", r["quantidadeResultados"])
+    if results < 1:
+        print('Não encontrado nada')
+    else:
+        i = 0
+        try:
+            print('-============///////=============-')
+            while i <= 10 :
+                print("CPF:", r["resultados"][i]["cpf"])
+                print("Nome Completo:", r["resultados"][i]["nome"])
+                print("Nascimento:", r["resultados"][i]["nascimento"])
+                print("Sexo:", r["resultados"][i]["sexo"])
+                i += 1
+            print('-============///////=============-')
+        except:
+            print('-============///////=============-')
+            print("Não foi possivel printar mais!")
+    time.sleep(10)
 def consultacnpj():
-    os.system('cls')
-    print(bannercnpj)
+    cleaner()
+    print(BannerMenu)
     cnpj = input('Digite o CNPJ :\n')
-    print('CONSULTANDO, AGUARDE')
-    url = f'https://www.receitaws.com.br/v1/cnpj/{cnpj}'
-    cpj = requests.get(url).json()
-    Spinner()
-    print('Encontrado!')
-    print('')
-    print('Dados coletados...')
-    print('')
-    print('-============///////=============-')
-    print('Nome:', cpj["nome"])
-    print('Nome Fantasia:', cpj["fantasia"])
-    print('Estado:', cpj["uf"])
-    print('Telefone:', cpj["telefone"])
-    print('Email:', cpj["email"])
-    print('Data de abertura:', cpj["abertura"])
-    print('Capital:', cpj["capital_social"])
-    print('Situacao:', cpj["situacao"])
-    print('Municipio:', cpj["municipio"])
-    print('CEP:', cpj["cep"])
-    print('Bairro:', cpj["bairro"])
-    print('Porte:', cpj["porte"])
-    print('-============///////=============-')
-    print('')
-    print('Em 5 Segundos voce voltara ao menu!')
-    time.sleep(5.0)
-    os.system('cls')
+    try: 
+        url = f'https://www.receitaws.com.br/v1/cnpj/{cnpj}'
+        cpj = requests.get(url).json()
+        print('Encontrado!')
+        print('Dados coletados...')
+        print('-============///////=============-')
+        print('Nome:', cpj["nome"])
+        print('Nome Fantasia:', cpj["fantasia"])
+        print('Estado:', cpj["uf"])
+        print('Telefone:', cpj["telefone"])
+        print('Email:', cpj["email"])
+        print('Data de abertura:', cpj["abertura"])
+        print('Capital:', cpj["capital_social"])
+        print('Situacao:', cpj["situacao"])
+        print('Municipio:', cpj["municipio"])
+        print('CEP:', cpj["cep"])
+        print('Bairro:', cpj["bairro"])
+        print('Porte:', cpj["porte"])
+        print('-============///////=============-')
+        print('')
+    except:
+        print('Algo não ocorreu bem...')
+    print('Em 10 Segundos voce voltara ao menu!')
+    time.sleep(10.0)
+    cleaner()
     menu()
 def consultaplaca():
-    print(bannerplaca)
-    error404()
+    cleaner()
+    print(BannerMenu)
+    placa = input('>>')
+    time.sleep(0.4)
+    try:
+        h = {
+
+        }
+
+        url = " "
+        r=requests.post(url=url, headers=h)
+        print(f"{Fore.LIGHTGREEN_EX}[+]{Fore.LIGHTWHITE_EX} Encontramos dados sobre a placa {placa}")
+        print()
+        time.sleep(10)
+    except:
+        print(f"{Fore.LIGHTRED_EX}[-]{Fore.LIGHTWHITE_EX} Não encontramos dados da placa {placa}")
+        time.sleep(2)
 def consultabin():
-    print(bannerbin)
+    cleaner()
+    print(BannerMenu)
     Bin = input('Insira a Bin:')
-    req = requests.get(f'https://lookup.binlist.net/{Bin}')
-    BIN = json.loads(req.text)
-    Spinner()
-    print('')
-    print('Bin:', Bin)
-    print('Bandeira:', BIN["scheme"])
-    print('Nivel:', BIN["type"])
-    print('Tipo:', BIN["brand"])
-    print('Em 5 Segundos voce voltara ao menu!')
-    time.sleep(5.0)
-    os.system('cls')
+    try:
+        req = requests.get(f'https://lookup.binlist.net/{Bin}')
+        BIN = json.loads(req.text)
+        Spinner()
+        print('')
+        print('Bin:', Bin)
+        print('Bandeira:', BIN["scheme"])
+        print('Nivel:', BIN["type"])
+        print('Tipo:', BIN["brand"])
+    except:
+        print('Algo não ocorreu bem...')
+    print('Em 10 Segundos voce voltara ao menu!')
+    time.sleep(10.0)
+    cleaner()
     menu()
 def consultanum():
-    os.system('cls')
-    print(consultanum)
+    cleaner()
+    print(BannerMenu)
     num = input('Digite o numero: ')
-    numss = request.get(f'perr0ni.xyz/resultado?cel={num}')
-    result = (numss.text)
-    Spinner()
-    print('Encontrado!')
-    print('Dados coletados...')
-    print('-============///////=============-')
-    print( result )
-    print('-============///////=============-')
+    try:
+        numss = requests.get('{}'.format(num))
+        result = (numss.text)
+        Spinner()
+        print('Encontrado!')
+        print('Dados coletados...')
+        print('-==//GrabberTool-Consulta//==-')
+        print( result )
+        print('-==//GrabberTool-Consulta//==-')
+    except:
+        print('Algo não ocorreu bem...')
     time.sleep(10.0)
-    os.system('cls')
+    cleaner()
     menu()
 def checkercc():
-    os.system('cls')
-    print()
+    cleaner()
+    print(BannerMenu)
     print('Formato checker ( NumeroCC|Mes|Ano|CCV )')
     cc = input('Digite sua CC: ')
-    resultado = requests.get(f'https://grabbertool.000webhostapp.com/Checker-api/?cartaum={cc}').text
-    Spinnercc()
-    print('\n',resultado)
+    try:
+        resultado = requests.get(f'https://grabbertool.000webhostapp.com/Checker-api/?cartaum={cc}').text
+        print('-==//GrabberTool-Consulta//==- \n',
+              resultado, 
+              '\n -==//GrabberTool-Consulta//==-')
+    except:
+        print('Algo não ocorreu bem...')
     print('Em 10 Segundos voce voltara ao menu!')
     time.sleep(10.0)
-    os.system('cls')
+    cleaner()
     menu()
-def site():
-    print('ok!')
-    print('https://grabbertool.000webhostapp.com/checker/')
-    print('https://grabbertool.000webhostapp.com/Checker-V2/')
-    print('https://grabbertool.000webhostapp.com/Checker-api/?cartaum=Coloque|a|cc|aki')
-    print('Em 10 Segundos voce voltara ao menu!')
-    time.sleep(10.0)
-    os.system('cls')
-    menu()
+# 3RR0r 404
 def error404():
-    os.system('cls')
+    os.system('title Gr4bb3rT00l - BAD SYSTEM -=- ERRO 404')
+    cleaner()
     print('ERROR 404 | Número Incorreto')
     print('')
     print('Em 2 Segundos voce voltara ao menu!')
     time.sleep(2.0)
-    os.system('cls')
+    cleaner()
     menu()
+
+# Faxineiro
+def cleaner():
+    try:
+        os.system('cls')
+    except:
+        os.systtem('clear')
 # Spinner's 
+
 def Spinnerinicio():
-	l = ['↷', '↺', '↻',]
+	l = ['|', '/', '-', '\\']
 	for i in l+l+l:
-		sys.stdout.write('\r''[*] Iniciando | Aguarde' +i)
+		sys.stdout.write('\r''[*] Iniciando...'+i)
 		sys.stdout.flush()
+		time.sleep(0.3)
 def Spinner():
 	l = ['|', '/', '-', '\\']
 	for i in l+l+l:
 		sys.stdout.write('\r''[*] Consultando..'+i)
 		sys.stdout.flush()
 		time.sleep(0.3)
-def Spinnercc():
-	l = ['|', '/', '-', '\\']
-	for i in l+l+l:
-		sys.stdout.write('\r''[*] Invadindo o sistema...'+i)
-		sys.stdout.flush()
-		time.sleep(0.3)
-# Iniciar menu...
-os.system('cls')
+
+# Inicialização padrão
+
+cleaner()
 Spinnerinicio()
-os.system('title GrabberTool Verção 1.5! {-=-} Puxando até tua alma')
-menu()
+try:
+    os.system("git pull")
+    menu()
+except KeyboardInterrupt:
+    print("Quer sair? \nS - Sim\nN - Não")
+    sair = input('[S/N]\n>>')
+    if sair == 'S' or sair == 's':
+        print('Ok, Adeus...')
+        exit()
+    else:
+        print('Ok. Aguarde estamos redirecionando para o Menu!')
+        time.sleep(5)
+        menu()
+
