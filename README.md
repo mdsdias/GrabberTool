@@ -13,72 +13,93 @@
 ## Funcionamento!
 #### Fizemos um sistema simples de se entender para facitamento geral!
 ```
-
      _______            __    __               _______             __       
     |   _   .----.---.-|  |--|  |--.-----.----|       .-----.-----|  |      
     |.  |___|   _|  _  |  _  |  _  |  -__|   _|.|   | |  _  |  _  |  |_____.
     |.  |   |__| |___._|_____|_____|_____|__| `-|.  |-|_____|_____|________|
     |:  1   |                                   |:  |                       
-    |::.. . |      Isqne & iiMaxxi              |::.|                       
+    |::.. . |                                   |::.|                       
     `-------'                                   `---'
-    
 
-        1 ⇁ Consulta CEP
-        2 ⇁ Consulta CPF
-        3 ⇁ Consulta CNPJ
-        4 ⇁ Consulta Placa [OFF]
-        5 ⇁ Consulta Bin
-        6 ⇁ Consulta Numero [OFF]
-        7 ⇁ Checker CC  [OFF]
-        10 ⇁ Sites Oficiais
+
+        1 - Consulta CEP
+        2 - Consulta CPF
+        3 - Consulta CNPJ
+        4 - Consulta Placa
+        5 - Consulta Bin
+        6 - Consulta Numero [Simples] [OFF]
+        7 - Checker CC [OFF]
+        8 - Consulta Nome
         0 - Fechar
-        
-⇨ 
+
+[Escolha um]:
 ```
 
 ## Nós estamos sempre atualizando a Tool!
-Por conta disso as vezes pode aparecer [OFF]
+Por conta disso as vezes pode aparecer `[OFF]`
 Iremos avisar aki quando estiver em funcionamento cada uma das ferramentas inclusas!
 # Ferramentas ON!!
 - [x] CEP
-- [ ] CPF
+- [x] CPF
 - [x] CNPJ
-- [ ] Placa
+- [x] Placa
 - [x] Bin
 - [ ] Numero
-- [x] Checker CC
+- [ ] Checker CC
+- [x] Nome [NEW]
 # Exemplos da Tool!
 ## CEP
 ```
-      _____                   ____       ____________  
-     / ___/__  ___  ___ __ __/ / /____ _/ ___/ __/ _ \ 
-    / /__/ _ \/ _ \(_-</ // / / __/ _ `/ /__/ _// ___/ 
-    \___/\___/_//_/___/\_,_/_/\__/\_,_/\___/___/_/     
-                            By Isqne & iiMaxxi
+     _______            __    __               _______             __       
+    |   _   .----.---.-|  |--|  |--.-----.----|       .-----.-----|  |      
+    |.  |___|   _|  _  |  _  |  _  |  -__|   _|.|   | |  _  |  _  |  |_____.
+    |.  |   |__| |___._|_____|_____|_____|__| `-|.  |-|_____|_____|________|
+    |:  1   |                                   |:  |                       
+    |::.. . |                                   |::.|                       
+    `-------'                                   `---'
+
 Digite o CEP:
-1234-567
+12346578
 [*] Consultando..\
 Busca Completa
 Dados coletados...
--============///////=============-  
-CEP : 1234-567
-Bairro : Bairro legal
-Endereco : Rua Gente Boa
-Cidade : Bacana
-Estado : AC
--============///////=============-  
+-============///////=============-
+CEP : 12346-578
+Bairro : Sei
+Endereco : Não
+Cidade : Seila
+Estado : AB
+-============///////=============-
+
+Em 10 Segundos voce voltara ao menu!
 ```
 ## CPF
 ```
-# OFF #
+     _______            __    __               _______             __       
+    |   _   .----.---.-|  |--|  |--.-----.----|       .-----.-----|  |      
+    |.  |___|   _|  _  |  _  |  _  |  -__|   _|.|   | |  _  |  _  |  |_____.
+    |.  |   |__| |___._|_____|_____|_____|__| `-|.  |-|_____|_____|________|
+    |:  1   |                                   |:  |                       
+    |::.. . |                                   |::.|                       
+    `-------'                                   `---'
+
+-=>>12345678910
+CPF: 12345678910
+Nome: P E L É
+Sexo: MASCULINO|FEMININO
+Data de Nascimento: dd/mm/yyyy     
+Idade: ***
+Em 5 Segundos voce voltara ao menu!
 ```
 ## CNPJ
 ```
-      _____                   ____       ______  _____     __
-     / ___/__  ___  ___ __ __/ / /____ _/ ___/ |/ / _ \__ / /
-    / /__/ _ \/ _ \(_-</ // / / __/ _ `/ /__/    / ___/ // / 
-    \___/\___/_//_/___/\_,_/_/\__/\_,_/\___/_/|_/_/   \___/  
-                            By Isqne | iiMaxxi
+     _______            __    __               _______             __       
+    |   _   .----.---.-|  |--|  |--.-----.----|       .-----.-----|  |      
+    |.  |___|   _|  _  |  _  |  _  |  -__|   _|.|   | |  _  |  _  |  |_____.
+    |.  |   |__| |___._|_____|_____|_____|__| `-|.  |-|_____|_____|________|
+    |:  1   |                                   |:  |                       
+    |::.. . |                                   |::.|                       
+    `-------'                                   `---'
 
 Digite o CNPJ :
 12345678910112
@@ -106,11 +127,13 @@ Porte: MICRO FONE
 ```
 ## Bin
 ```
-      _____                   ____       ___  _____  __
-     / ___/__  ___  ___ __ __/ / /____ _/ _ )/  _/ |/ /
-    / /__/ _ \/ _ \(_-</ // / / __/ _ `/ _  |/ //    / 
-    \___/\___/_//_/___/\_,_/_/\__/\_,_/____/___/_/|_/  
-                            By Isqne | iiMaxxi
+     _______            __    __               _______             __       
+    |   _   .----.---.-|  |--|  |--.-----.----|       .-----.-----|  |      
+    |.  |___|   _|  _  |  _  |  _  |  -__|   _|.|   | |  _  |  _  |  |_____.
+    |.  |   |__| |___._|_____|_____|_____|__| `-|.  |-|_____|_____|________|
+    |:  1   |                                   |:  |                       
+    |::.. . |                                   |::.|                       
+    `-------'                                   `---'
 
 Insira a Bin:552255
 [*] Consultando..\
@@ -125,17 +148,38 @@ Tipo: World
 ```
 ## Checker CC
 ```
-Formato checker ( NumeroCC|Mes|Ano|CCV )
-Digite sua CC: 5522556610755032770|02|2024|311
-[*] Invadindo o sistema...\
- #Aprovada: 552255xxxxxxxxxxxxx|mm|yyyy|ccv| #GRABBERCHECKER
+# OFF #
 ```
-# Dev's
-<b>Está Tool foi desenvolvida por:</b>
+## Nome
+```
+     _______            __    __               _______             __       
+    |   _   .----.---.-|  |--|  |--.-----.----|       .-----.-----|  |      
+    |.  |___|   _|  _  |  _  |  _  |  -__|   _|.|   | |  _  |  _  |  |_____.
+    |.  |   |__| |___._|_____|_____|_____|__| `-|.  |-|_____|_____|________|
+    |:  1   |                                   |:  |                       
+    |::.. . |                                   |::.|                       
+    `-------'                                   `---'
 
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/iiMaxxi"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/77986142?s=400&u=a9b7d1654029a0ec5f107819ace7fc3e984c981b&v=4" width="100px;" alt=""/><br /><sub><b>GitHub💻</b></sub></a><br /><a href="https://github.com/iiMaxxi/IsqneTool" title="Aquele canto de gente entelegente">Repo💻</a><a href="https://repl.it/@iiMaxxi"><br /><sub><b>Repl.it💻</sub><br /></b></a></td>
-    <td align="center"><a href="https://github.com/Isqneeh"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/79223936?s=460&u=1952fa4fb5538604622395fc7a5328c5c537e3e2&v=4" width="100px;" alt=""/><br /><sub><b>GitHub💻</b></sub></a><br /><a href="https://github.com/Isqneeh/GrabberTool" title="Aquele canto de gente entelegente">Repo💻</a><a href="https://repl.it/@Isqne"><br /><sub><b>Repl.it💻</sub><br /></b></a></td>
-  </tr>
-</table>
+>>Nome legal pode tentar
+Quantidade de resultados:  1
+-============///////=============-
+CPF: ***********
+Nome Completo: Nome legal né po
+Nascimento: dd/mm/yyyy
+Sexo: M - Masculino | F - Feminino
+-============///////=============-
+Não foi possivel printar mais!    
+
+# OBS: ele printa apenas as 10 primeiras, se não tiver 10 ele printa as que tiverem! # 
+```
+
+<div align="center">
+  <h2>Está Tool foi desenvolvida por:</h2>
+
+  <table>
+    <tr>
+      <td align="center"><a href="https://github.com/iiMaxxi"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/77986142?s=400&u=a9b7d1654029a0ec5f107819ace7fc3e984c981b&v=4" width="100px;" alt=""/><br /><sub><b>GitHub💻</b></sub></a><br /><a href="https://github.com/iiMaxxi/IsqneTool" title="Aquele canto de gente entelegente">Repo💻</a><a href="https://repl.it/@iiMaxxi"><br /><sub><b>Repl.it💻</sub><br /></b></a></td>
+      <td align="center"><a href="https://github.com/Isqneeh"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/79223936?s=460&u=1952fa4fb5538604622395fc7a5328c5c537e3e2&v=4" width="100px;" alt=""/><br /><sub><b>GitHub💻</b></sub></a><br /><a href="https://github.com/Isqneeh/GrabberTool" title="Aquele canto de gente entelegente">Repo💻</a><a href="https://repl.it/@Isqne"><br /><sub><b>Repl.it💻</sub><br /></b></a></td>
+    </tr>
+  </table>
+</div>
