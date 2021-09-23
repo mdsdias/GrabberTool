@@ -3,7 +3,7 @@
 ## GrabberTool
 ##### GrabberTool, é uma Re-Criação do IsqneTool, com o objetivo de puxar dados!
 <h4 align=center>
-  <img style="border-radius: 5%;" src="https://imgur.com/dunga8H.png" width="1000px" alt="720px;"/>
+  <img style="border-radius: 5%;" src="https://static.isqne.repl.co/images/GrabberTool.png" width="1000px" alt="720px;"/>
 </h4>
 
 <p>
